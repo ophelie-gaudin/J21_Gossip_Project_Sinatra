@@ -1,0 +1,28 @@
+<html>
+  <head>
+   <title>Editer le potin n° <%= id %> </title>
+  </head>
+
+  <body>
+    <h1> Voici le potin à éditer:  </h1>
+
+    Son auteur : <%= gossips[id.to_i].author %><br/>
+    Le contenu du potin : <%= gossips[id.to_i].content %></br></br>
+
+    <form action="/gossips/<%= id %>/edit/" method='POST'>
+    <%# Le champ action définit l'URL qui va recevoir le contenu du formulaire et le champ method définit le type de requête. %>
+      Saisis ici ton nom :  <input type='text' name='gossip_author' value="<%= gossips[id.to_i].author %>"/><br/>
+      <%# L'option name définir le nom que portera ce contenu saisi, tout comme on lui donnerait un nom de variable en Ruby du genre "user_name" ou autre.  %>
+      <%# L'attribut value permet de récupérer l'ancien content pour juste pouvoir le modifier %>
+      Edite ce potin : <input type='text' name='gossip_content' value="<%= gossips[id.to_i].content %>"/><br/>
+      <input type='submit'/>
+    </form>
+
+
+    <a href="/">Retour à l'accueil</a> 
+
+
+
+
+  <body>
+</html>
